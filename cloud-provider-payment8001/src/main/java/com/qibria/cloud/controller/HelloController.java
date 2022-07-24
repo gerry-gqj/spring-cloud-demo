@@ -25,8 +25,8 @@ public class HelloController {
     @Value("${server.port}")
     private String port;
 
-    @Resource
-    private DiscoveryClient discoveryClient;
+//    @Resource
+//    private DiscoveryClient discoveryClient;
 
     @GetMapping("hello")
     public CommonResult hello() {
@@ -41,22 +41,6 @@ public class HelloController {
     @PostMapping("hello/post")
     public CommonResult<Payment> helloPost(@RequestBody Payment payment){
        return new CommonResult<>(200, "hello post: " + port, payment);
-    }
-
-    @GetMapping(value = "/payment/discovery")
-    public Object discovery() {
-        
-        List<String> services = discoveryClient.getServices();
-        for (String element : services) {
-            log.info("*****element: "+element);
-        }
-
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-        for (ServiceInstance instance : instances) {
-            log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
-        }
-
-        return this.discoveryClient;
     }
 
 }
