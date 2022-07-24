@@ -12,6 +12,18 @@ spring:
           search-paths:
             - springcloud-config # 配置文件路径
       label: master # 分支名
+  rabbitmq:
+    host: 192.168.1.7
+    port: 5672
+    password: 1
+    username: rabboy
+
+##rabbitmq相关配置,暴露bus刷新配置的端点
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
 
 eureka:
   client:
@@ -26,7 +38,7 @@ eureka:
       defaultZone: http://127.0.0.1:7001/eureka,http://127.0.0.1:7002/eureka
       #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
-    instance-id: configcenter3344
+    instance-id: config-center3344
     #访问路径可以显示IP地址
     prefer-ip-address: true
     #Eureka客户端向服务端发送心跳的时间间隔，单位为秒(默认是30秒)
