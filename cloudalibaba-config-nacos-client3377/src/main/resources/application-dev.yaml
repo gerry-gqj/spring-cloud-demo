@@ -1,0 +1,14 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+
+
+#配置中心
+#config:
+#  info: |
+#    nacos config center.
+#    path = nacos-config-client-dev.yaml.
+#    version = 1.
