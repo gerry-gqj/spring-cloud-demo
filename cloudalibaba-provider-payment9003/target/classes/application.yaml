@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9003
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
     nacos:
       discovery:
         #server-addr: 192.168.1.5:1111 #nginx代理nacos地址
-        server-addr: 192.168.1.7:8848 #配置Nacos地址
+        server-addr: 192.168.1.5:8848 #配置Nacos地址
 
 management:
   endpoints:
